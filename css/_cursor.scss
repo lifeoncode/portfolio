@@ -1,0 +1,51 @@
+@import "./theme";
+@import "./animations";
+
+// mouse cursor
+.cursor {
+  position: absolute;
+  z-index: 4;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 50%;
+  pointer-events: none;
+
+  //   when hovering clickable elements
+  &.on-link {
+    &.pointer {
+      opacity: 0;
+    }
+
+    &.border {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  //   when menu is open
+  &.on-menu {
+    &.pointer {
+      background-color: $dark-mode-cursor;
+    }
+
+    &.border {
+      background-color: $dark-mode-cursor-border-bg;
+      border: 1px solid $dark-mode-cursor-border;
+    }
+  }
+
+  &.pointer {
+    width: 10px;
+    height: 10px;
+    transition: all 0.3s ease-out;
+  }
+
+  &.border {
+    width: 60px;
+    height: 60px;
+    transition: all 0.6s ease-out;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    display: none;
+  }
+}

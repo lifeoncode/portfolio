@@ -1,0 +1,149 @@
+@import "./utility";
+@import "./theme";
+@import "./cursor";
+@import "./menu";
+@import "./animations";
+
+// contact section
+.contact {
+  .container {
+    width: 30%;
+
+    @media only screen and (max-width: 1200px) {
+      width: 40%;
+    }
+    @media only screen and (max-width: 900px) {
+      width: 50%;
+    }
+    @media only screen and (max-width: 750px) {
+      width: 60%;
+    }
+    @media only screen and (max-width: 450px) {
+      width: 70%;
+    }
+    @media only screen and (max-width: 400px) {
+      width: 80%;
+    }
+    @media only screen and (max-width: 320px) {
+      width: 100%;
+    }
+  }
+
+  h2 {
+    margin-bottom: 40px;
+    overflow: visible;
+
+    @media only screen and (max-width: 600px) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .form {
+    margin-bottom: 50px;
+  }
+
+  #to-name {
+    display: none;
+  }
+
+  input,
+  textarea,
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 2px;
+    background-color: transparent;
+    border: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  input {
+    margin-bottom: 10px;
+  }
+
+  #output {
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 2px;
+    letter-spacing: 2px;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    transform: scale(0);
+    transition: all 0.2s ease;
+
+    &.error {
+      transform: scale(1);
+      background-color: rgb(253, 27, 49);
+    }
+    &.success {
+      transform: scale(1);
+      background-color: rgb(0, 240, 116);
+    }
+  }
+
+  button {
+    margin: 30px 0;
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    &:active {
+      transform: scale(0.88);
+    }
+  }
+}
+
+// the footer
+footer {
+  h4 {
+    width: 50%;
+    line-height: 1.6;
+    opacity: 0.5;
+
+    @media only screen and (max-width: 800px) {
+      width: 60%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      width: 90%;
+    }
+  }
+
+  .links {
+    @include flex(center, space-between, row);
+    margin-top: 50px;
+
+    span {
+      @media only screen and (max-width: 500px) {
+        display: none;
+      }
+    }
+
+    div {
+      @include flex(center, space-between, row);
+
+      span {
+        @media only screen and (max-width: 500px) {
+          display: inline-block;
+        }
+      }
+
+      a + a {
+        margin-left: 50px;
+
+        @media only screen and (max-width: 600px) {
+          margin-left: 20px;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      margin-top: 30px;
+    }
+  }
+}

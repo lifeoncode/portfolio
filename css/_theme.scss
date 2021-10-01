@@ -1,0 +1,283 @@
+@import "./colors";
+
+body {
+  background-color: $white;
+
+  .loader {
+    background-color: $white;
+
+    .wrap {
+      .bar {
+        background-color: $dark-blue;
+      }
+    }
+  }
+
+  .cursor {
+    &.pointer {
+      background-color: $light-mode-cursor;
+    }
+
+    &.border {
+      background-color: $light-mode-cursor-border-bg;
+      border: 1px solid $light-mode-cursor-border;
+    }
+  }
+
+  header {
+    background-color: $white;
+  }
+
+  .hamburger {
+    div {
+      background-color: $dark-blue;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  li,
+  .large-font,
+  .big-font,
+  .logo {
+    color: $dark-blue;
+  }
+
+  .underlined {
+    color: $black;
+
+    span {
+      background-color: $black;
+      height: 1px;
+    }
+
+    &.cta {
+      color: $blue;
+
+      span {
+        background-color: darken($color: $blue, $amount: 5%);
+        height: 2px;
+      }
+    }
+  }
+
+  .btn {
+    background-color: $dark-blue;
+    color: $white;
+
+    &:hover {
+      background-color: $light-blue;
+    }
+  }
+
+  .screenshot {
+    background-color: $dark-blue;
+  }
+
+  .skills {
+    .design-el {
+      color: $dark-blue;
+    }
+  }
+
+  .article {
+    box-shadow: 0px 0px 30px $light-mode-shadow;
+  }
+
+  .overlay {
+    background-color: $black;
+  }
+
+  .tools {
+    .card {
+      background-color: $black;
+    }
+  }
+
+  .certs {
+    .card {
+      background-color: $black;
+    }
+  }
+
+  .theme-btn {
+    background-color: $dark-blue;
+
+    &:hover {
+      background-color: $light-blue;
+    }
+
+    div {
+      background-color: $white;
+      color: $dark-blue;
+    }
+  }
+
+  .contact {
+    input {
+      border-bottom: 1px solid $dark-blue;
+      color: $black;
+    }
+
+    textarea {
+      border: 1px solid $dark-blue;
+      color: $black;
+    }
+
+    button {
+      background-color: $dark-blue;
+      color: $white;
+    }
+  }
+
+  footer {
+    span {
+      color: $dark-blue;
+    }
+  }
+
+  // when in dark mode
+  &.dark {
+    background-color: $dark-gray;
+
+    .loader {
+      background-color: $dark-gray;
+
+      .wrap {
+        .bar {
+          background-color: $white;
+        }
+      }
+    }
+
+    .cursor {
+      &.pointer {
+        background-color: $dark-mode-cursor;
+      }
+
+      &.border {
+        background-color: $dark-mode-cursor-border-bg;
+        border: 1px solid $dark-mode-cursor-border;
+      }
+    }
+
+    header {
+      background-color: $dark-gray;
+    }
+
+    .hamburger {
+      div {
+        background-color: $white;
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    li,
+    .large-font,
+    .big-font,
+    .logo {
+      color: $white;
+    }
+
+    .underlined {
+      color: $light-blue;
+
+      span {
+        background-color: $light-blue;
+        height: 1px;
+      }
+
+      &.cta {
+        color: $light-blue;
+
+        span {
+          background-color: darken($color: $blue, $amount: 5%);
+          height: 2px;
+        }
+      }
+    }
+
+    .btn {
+      background-color: $light-blue;
+      color: $white;
+
+      &:hover {
+        background-color: $white;
+        color: $dark-blue;
+      }
+    }
+
+    .screenshot {
+      background-color: $white;
+    }
+
+    .skills {
+      .design-el {
+        color: $white;
+      }
+    }
+
+    .article {
+      box-shadow: 0px 0px 30px $dark-mode-shadow;
+    }
+
+    .overlay {
+      background-color: $white;
+    }
+
+    .tools {
+      .card {
+        background-color: $white;
+      }
+    }
+
+    .certs {
+      .card {
+        background-color: $white;
+      }
+    }
+
+    .theme-btn {
+      background-color: $white;
+
+      &:hover {
+        background-color: $light-blue;
+      }
+
+      div {
+        background-color: $dark-blue;
+        color: $white;
+      }
+    }
+
+    .contact {
+      input {
+        border-bottom: 1px solid $white;
+        color: $white;
+      }
+
+      textarea {
+        border: 1px solid $white;
+        color: $white;
+      }
+
+      button {
+        background-color: $blue;
+        color: $white;
+      }
+    }
+
+    footer {
+      span {
+        color: $white;
+      }
+    }
+  }
+}

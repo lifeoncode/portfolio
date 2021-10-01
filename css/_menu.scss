@@ -1,0 +1,148 @@
+// the menu div
+// section {
+//   display: none !important;
+// }
+
+@import "./colors";
+@import "./utility";
+
+.menu {
+  position: fixed !important;
+  z-index: 2;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  width: 1px;
+  height: 1px;
+  background-color: $black;
+  @include flex(center, center, column);
+  transition: all 0.5s ease-out;
+
+  &.open {
+    width: 100%;
+    left: 0;
+
+    &.stretch {
+      height: 100vh;
+      top: 0;
+    }
+  }
+
+  .container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  nav {
+    div {
+      overflow: hidden;
+      margin-bottom: 50px;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      @media only screen and (max-width: 600px) {
+        margin-bottom: 30px;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+
+    a {
+      position: relative;
+      display: block;
+      font-size: 50px;
+      color: $white;
+      text-transform: uppercase;
+      font-weight: 300;
+      transform: translateY(110%);
+      transition: all 1s ease;
+
+      &.loaded {
+        transform: translateY(-2%);
+      }
+
+      &:hover span {
+        width: 100%;
+      }
+
+      span {
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        height: 2px;
+        width: 25%;
+        background-color: $white;
+        transition: all 1s ease;
+      }
+
+      @media only screen and (max-width: 600px) {
+        font-size: 30px;
+      }
+    }
+  }
+
+  // social links
+  .social-links {
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+
+    .line {
+      background-color: $white;
+      position: absolute;
+      top: 0;
+      left: 10px;
+      height: 1px;
+      width: 1px;
+      transition: all 3s ease;
+
+      &.loaded {
+        height: 50%;
+
+        @media only screen and (max-width: 450px) {
+          height: 40%;
+        }
+      }
+    }
+
+    a {
+      display: block;
+      font-size: 20px;
+      color: $white;
+      opacity: 0;
+      transition: all 5s ease;
+
+      &.loaded {
+        opacity: 1;
+      }
+
+      &:nth-of-type(2) {
+        margin: 50px 0;
+
+        @media only screen and (max-width: 1000px) {
+          margin: 30px 0;
+        }
+
+        @media only screen and (max-width: 450px) {
+          margin: 20px 0;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 1000px) {
+      height: 40vh;
+    }
+  }
+}

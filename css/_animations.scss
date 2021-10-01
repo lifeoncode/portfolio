@@ -1,0 +1,35 @@
+// animate the cursor on clicks
+.cursor {
+  &.on-click {
+    &.pointer {
+      opacity: 0;
+    }
+
+    &.border {
+      animation: onclick 0.3s 0ms ease forwards;
+    }
+  }
+}
+
+@keyframes onclick {
+  50% {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+// animate headings
+h1,
+h2 {
+  overflow: hidden;
+
+  .large-font,
+  .big-font {
+    display: inline-block;
+    transform: translateY(110%);
+
+    &.show {
+      transform: translateY(0);
+    }
+  }
+}

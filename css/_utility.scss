@@ -1,0 +1,439 @@
+// import set colors
+@import "./colors";
+
+// import fonts [Fjalla one + Oswald]
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&family=Oswald:wght@200;300;400;500;600;700&display=swap");
+// Passion one
+@import url("https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700&display=swap");
+
+// reset browser css
+* {
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// customize the scrollbar
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: inherit;
+
+  &-thumb {
+    border-radius: 30px;
+    background-color: $blue;
+  }
+}
+
+// functions
+@mixin flex($align, $justify, $direction) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+@mixin grid($columns, $gap) {
+  display: grid;
+  grid-template-columns: $columns;
+  gap: $gap;
+}
+
+// the body
+body {
+  overflow-x: hidden;
+  position: relative;
+  transition: all 1s ease;
+}
+
+// page loading
+.loader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 10;
+  transition: all 0.5s ease;
+  @include flex(center, center, column);
+
+  &.content-loaded {
+    opacity: 0;
+
+    &.disable {
+      display: none;
+    }
+  }
+
+  .wrap {
+    width: 200px;
+    height: auto;
+
+    .bar {
+      width: 10%;
+      height: 10px;
+      border-radius: 10px;
+      animation: loadingPage 3s 0ms cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+
+      @media only screen and (max-width: 600px) {
+        height: 5px;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      width: 100px;
+    }
+  }
+}
+
+@keyframes loadingPage {
+  25% {
+    width: 100%;
+    margin-left: 0;
+  }
+  50% {
+    margin-left: 90%;
+    width: 10%;
+  }
+  75% {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+// typography
+h1,
+h2,
+h3,
+h4,
+.large-font,
+.big-font {
+  font-family: "Fjalla one", sans-serif;
+  font-weight: 900;
+  transition: all 1s ease;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 40px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 30px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    line-height: 1.1;
+  }
+  @media only screen and (max-width: 300px) {
+    line-height: 1;
+  }
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 25px;
+
+  @media only screen and (max-width: 700px) {
+    font-size: 18px;
+  }
+}
+
+p,
+li {
+  font-size: 18px;
+  line-height: 1.5;
+  opacity: 0.8;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 16px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    font-size: 15px;
+  }
+
+  @media only screen and (max-width: 320px) {
+    line-height: 1.4;
+    font-size: 25px;
+  }
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 18px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 16px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    font-size: 15px;
+  }
+}
+
+.large-font {
+  font-size: 120px;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  @media only screen and (max-width: 1200px) {
+    font-size: 100px;
+  }
+
+  @media only screen and (max-width: 800px) {
+    font-size: 90px;
+  }
+
+  @media only screen and (max-width: 700px) {
+    font-size: 80px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    font-size: 60px;
+    line-height: 1.25;
+  }
+
+  @media only screen and (max-width: 300px) {
+    font-size: 50px;
+  }
+}
+
+.big-font {
+  font-size: 80px;
+  line-height: 1.3;
+
+  @media only screen and (max-width: 1000px) {
+    font-size: 60px;
+  }
+
+  @media only screen and (max-width: 900px) {
+    font-size: 50px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    font-size: 40px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    font-size: 30px;
+  }
+
+  @media only screen and (max-width: 350px) {
+    font-size: 25px;
+  }
+
+  @media only screen and (max-width: 300px) {
+    font-size: 22px;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+// header
+header {
+  position: sticky;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 0;
+  transition: all 1s ease;
+
+  &.hide {
+    transform: translateY(-100%);
+  }
+
+  &.menu-open {
+    background-color: $black !important;
+  }
+
+  .container {
+    @include flex(center, space-between, row);
+  }
+
+  // logo
+  .logo {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    transition: all 1s ease;
+
+    &.menu-open {
+      color: $white;
+    }
+
+    @media only screen and (max-width: 600px) {
+      font-size: 12px;
+    }
+  }
+
+  // hamburger button
+  .hamburger {
+    width: 70px;
+    height: auto;
+    padding: 10px;
+    cursor: pointer;
+
+    // bars
+    div {
+      border-radius: 30px;
+      height: 2px;
+      transition: all 1s ease;
+
+      //   when menu is open
+      &.menu-open {
+        background-color: $white;
+      }
+
+      &:nth-of-type(2) {
+        margin: 5px 0;
+        width: 75%;
+
+        &.onhover {
+          width: 20%;
+          margin-left: 80%;
+        }
+      }
+      &:nth-of-type(3) {
+        width: 25%;
+
+        &.onhover {
+          width: 20%;
+          margin-left: 80%;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      width: 60px;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding: 10px 0;
+  }
+}
+
+// sections
+section {
+  padding: 50px 0;
+  opacity: 0;
+  transition: all 0.5s ease;
+
+  &.loaded {
+    opacity: 1;
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding: 40px 0;
+  }
+}
+
+footer {
+  padding-bottom: 30px;
+}
+
+// content container
+.container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media only screen and (max-width: 1200px) {
+    padding: 0 20px;
+  }
+  @media only screen and (max-width: 500px) {
+    padding: 0 10px;
+  }
+}
+
+// underlined links
+.underlined {
+  display: inline-block;
+  position: relative;
+  letter-spacing: 4px;
+  cursor: pointer;
+
+  &:hover span {
+    width: 100%;
+  }
+
+  span {
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 40%;
+    transition: all 1s ease;
+  }
+
+  &.cta {
+    font-size: 30px;
+    font-weight: 500;
+    padding-left: 10px;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 20px;
+    }
+
+    @media only screen and (max-width: 340px) {
+      font-size: 16px;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    letter-spacing: 2px;
+  }
+}
+
+// theme button
+.theme-btn {
+  position: fixed;
+  z-index: 10;
+  bottom: 50px;
+  right: 20px;
+  width: 26px;
+  height: 50px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+
+  &:active {
+    transform: scale(0.8);
+  }
+
+  div {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    @include flex(center, center, auto);
+
+    &.on-dark {
+      top: 26px;
+    }
+
+    i {
+      font-size: 13px;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    bottom: 10px;
+    right: 10px;
+  }
+}
