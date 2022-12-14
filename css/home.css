@@ -1700,24 +1700,12 @@ h2 .big-font.show {
   border-radius: 2px;
   transform-style: preserve-3d;
   transition: all 1s ease;
-  cursor: pointer;
-}
-.work .screenshot.on-hover {
-  transform: rotateX(45deg);
 }
 .work .screenshot img {
   border-radius: 2px;
   transition: all 1s ease;
   transform-style: preserve-3d;
   pointer-events: none;
-}
-.work .screenshot img.popout {
-  transform: translateZ(100px);
-}
-@media only screen and (max-width: 600px) {
-  .work .screenshot img.popout {
-    transform: translateZ(50px);
-  }
 }
 @media only screen and (max-width: 600px) {
   .work .screenshot {
